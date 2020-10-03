@@ -1,5 +1,7 @@
 # go 语言学习笔记 - 老男孩教学视频
 
+![20201003_173756_87](image/20201003_173756_87.png)
+
 ```
 Something I hope you know before go into the coding~
 First, please watch or star this repo, I'll be more happy if you follow me.
@@ -20,6 +22,7 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
     * [关键字](docs/go代码基本组成/关键字.md)
     * [标识符](docs/go代码基本组成/标识符.md)
 
-## 参考
 
-* <http://books.studygolang.com/>
+## 图示
+
+![20201003_173722_94](image/20201003_173722_94.png)
