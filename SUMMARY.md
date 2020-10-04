@@ -10,4 +10,9 @@
 * [编写第一个Go语言程序](docs/oldboy/编写第一个Go语言程序.md)
 * [变量声明](docs/oldboy/变量声明.md)
 * [变量赋值](docs/oldboy/变量赋值.md)
+* [常量和iota](docs/oldboy/常量和iota.md)
+* [整型](docs/oldboy/整型.md)
+* [浮点型复数和布尔值](docs/oldboy/浮点型复数和布尔值.md)
+* [fmt总结](docs/oldboy/fmt总结.md)
+* [字符串操作](docs/oldboy/字符串操作.md)
 
