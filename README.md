@@ -15,7 +15,11 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 ## 目录
 
 
+## 参考
 
+* <https://github.com/go-internals-cn/go-internals/blob/master/chapter1_assembly_primer/README.md>
+* <https://colobu.com/goasm/>
+* <https://chai2010.cn/advanced-go-programming-book/ch3-asm/readme.html>
 
 
 
