@@ -26,6 +26,9 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 * [变量声明](docs/oldboy/变量声明.md)
 * [变量赋值](docs/oldboy/变量赋值.md)
 
+## 参考
+
+* <https://www.liwenzhou.com/posts/Go/go_menu/>
 
 ## 图示
 

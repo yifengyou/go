@@ -18,4 +18,10 @@
 * [字符串修改及类型转换](docs/oldboy/字符串修改及类型转换.md)
 * [if判断和for循环](docs/oldboy/if判断和for循环.md)
 * [内容回顾](docs/oldboy/内容回顾.md)
+* [switch和goto](docs/oldboy/switch和goto.md)
+* [运算符](docs/oldboy/运算符.md)
+* [数组](docs/oldboy/数组.md)
+* [数组练习题](docs/oldboy/数组练习题.md)
+* [切片1](docs/oldboy/切片1.md)
+* [切片的本质](docs/oldboy/切片的本质.md)
 
