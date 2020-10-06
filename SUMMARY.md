@@ -15,4 +15,7 @@
 * [浮点型复数和布尔值](docs/oldboy/浮点型复数和布尔值.md)
 * [fmt总结](docs/oldboy/fmt总结.md)
 * [字符串操作](docs/oldboy/字符串操作.md)
+* [字符串修改及类型转换](docs/oldboy/字符串修改及类型转换.md)
+* [if判断和for循环](docs/oldboy/if判断和for循环.md)
+* [内容回顾](docs/oldboy/内容回顾.md)
 
