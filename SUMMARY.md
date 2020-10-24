@@ -42,6 +42,5 @@
 * [defer再讲解](docs/oldboy/defer再讲解.md)
 * [内置函数](docs/oldboy/内置函数.md)
 * [fmt标准库介绍](docs/oldboy/fmt标准库介绍.md)
-* [本周作业介绍](docs/oldboy/本周作业介绍.md)
-* [今日内容概要](docs/oldboy/今日内容概要.md)
+* [struct结构体](docs/oldboy/struct结构体.md)
 
