@@ -42,5 +42,9 @@
 * [defer再讲解](docs/oldboy/defer再讲解.md)
 * [内置函数](docs/oldboy/内置函数.md)
 * [fmt标准库介绍](docs/oldboy/fmt标准库介绍.md)
+* [函数相关-内容回顾](docs/oldboy/函数相关-内容回顾.md)
+* [分金币作业](docs/oldboy/分金币作业.md)
+* [递归](docs/oldboy/递归.md)
+* [自定义类型和类型别名](docs/oldboy/自定义类型和类型别名.md)
 * [struct结构体](docs/oldboy/struct结构体.md)
 
