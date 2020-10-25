@@ -48,4 +48,8 @@
 * [自定义类型和类型别名](docs/oldboy/自定义类型和类型别名.md)
 * [struct结构体](docs/oldboy/struct结构体.md)
 * [结构体和初始化](docs/oldboy/结构体和初始化.md)
+* [方法和接收者](docs/oldboy/方法和接收者.md)
+* [值接收者和指针接收者的区别](docs/oldboy/值接收者和指针接收者的区别.md)
+* [那些你遇到的问题呀](docs/oldboy/那些你遇到的问题呀.md)
+* [函数版学生管理系统](docs/oldboy/函数版学生管理系统.md)
 
