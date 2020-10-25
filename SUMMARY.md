@@ -47,4 +47,5 @@
 * [递归](docs/oldboy/递归.md)
 * [自定义类型和类型别名](docs/oldboy/自定义类型和类型别名.md)
 * [struct结构体](docs/oldboy/struct结构体.md)
+* [结构体和初始化](docs/oldboy/结构体和初始化.md)
 
