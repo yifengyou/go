@@ -53,4 +53,8 @@
 * [那些你遇到的问题呀](docs/oldboy/那些你遇到的问题呀.md)
 * [函数版学生管理系统](docs/oldboy/函数版学生管理系统.md)
 * [结构体的匿名字段结构体嵌套等](docs/oldboy/结构体的匿名字段结构体嵌套等.md)
+* [结构体模拟实现继承](docs/oldboy/结构体模拟实现继承.md)
+* [结构体与JSON](docs/oldboy/结构体与JSON.md)
+* [结构体内容回顾](docs/oldboy/结构体内容回顾.md)
+* [结构体版学生管理系统](docs/oldboy/结构体版学生管理系统.md)
 
