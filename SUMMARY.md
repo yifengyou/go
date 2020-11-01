@@ -58,4 +58,9 @@
 * [结构体内容回顾](docs/oldboy/结构体内容回顾.md)
 * [结构体版学生管理系统](docs/oldboy/结构体版学生管理系统.md)
 * [初识接口类型](docs/oldboy/初识接口类型.md)
+* [接口的定义与实现](docs/oldboy/接口的定义与实现.md)
+* [指针接收者实现接口和值接收者实现接口的区别](docs/oldboy/指针接收者实现接口和值接收者实现接口的区别.md)
+* [实现多个接口和接口嵌套](docs/oldboy/实现多个接口和接口嵌套.md)
+* [空接口](docs/oldboy/空接口.md)
+* [package相关](docs/oldboy/package相关.md)
 
