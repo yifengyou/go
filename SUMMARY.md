@@ -57,4 +57,5 @@
 * [结构体与JSON](docs/oldboy/结构体与JSON.md)
 * [结构体内容回顾](docs/oldboy/结构体内容回顾.md)
 * [结构体版学生管理系统](docs/oldboy/结构体版学生管理系统.md)
+* [初识接口类型](docs/oldboy/初识接口类型.md)
 
