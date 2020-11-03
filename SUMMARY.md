@@ -63,4 +63,13 @@
 * [实现多个接口和接口嵌套](docs/oldboy/实现多个接口和接口嵌套.md)
 * [空接口](docs/oldboy/空接口.md)
 * [package相关](docs/oldboy/package相关.md)
+* [为什么要有日志库作业](docs/oldboy/为什么要有日志库作业.md)
+* [打开文件读内容](docs/oldboy/打开文件读内容.md)
+* [文件写入](docs/oldboy/文件写入.md)
+* [使用bufio获取用户输入](docs/oldboy/使用bufio获取用户输入.md)
+* [日志库作业需求](docs/oldboy/日志库作业需求.md)
+* [日志作业实现](docs/oldboy/日志作业实现.md)
+* [在文件中间插入内容](docs/oldboy/在文件中间插入内容.md)
+* [time包](docs/oldboy/time包.md)
+* [time包补充](docs/oldboy/time包补充.md)
 
