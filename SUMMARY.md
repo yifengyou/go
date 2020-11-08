@@ -72,4 +72,13 @@
 * [在文件中间插入内容](docs/oldboy/在文件中间插入内容.md)
 * [time包](docs/oldboy/time包.md)
 * [time包补充](docs/oldboy/time包补充.md)
+* [日志库需求分析](docs/oldboy/日志库需求分析.md)
+* [日志库简单实现](docs/oldboy/日志库简单实现.md)
+* [runtime.Caller](docs/oldboy/runtime.Caller.md)
+* [记录日志时支持格式化输出](docs/oldboy/记录日志时支持格式化输出.md)
+* [实现往文件里记录日志](docs/oldboy/实现往文件里记录日志.md)
+* [日志文件切割](docs/oldboy/日志文件切割.md)
+* [日志库补充](docs/oldboy/日志库补充.md)
+* [反射及附加题作业需求](docs/oldboy/反射及附加题作业需求.md)
+* [ini配置文件解析](docs/oldboy/ini配置文件解析.md)
 
