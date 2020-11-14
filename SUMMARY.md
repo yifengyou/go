@@ -81,4 +81,9 @@
 * [日志库补充](docs/oldboy/日志库补充.md)
 * [反射及附加题作业需求](docs/oldboy/反射及附加题作业需求.md)
 * [ini配置文件解析](docs/oldboy/ini配置文件解析.md)
+* [并发编程介绍](docs/oldboy/并发编程介绍.md)
+* [创建goroutine](docs/oldboy/创建goroutine.md)
+* [sync包WaitGroup](docs/oldboy/sync包WaitGroup.md)
+* [goroutine调度模型GMP](docs/oldboy/goroutine调度模型GMP.md)
+* [channel初识](docs/oldboy/channel初识.md)
 
