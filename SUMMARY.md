@@ -86,4 +86,13 @@
 * [sync包WaitGroup](docs/oldboy/sync包WaitGroup.md)
 * [goroutine调度模型GMP](docs/oldboy/goroutine调度模型GMP.md)
 * [channel初识](docs/oldboy/channel初识.md)
+* [单向通道](docs/oldboy/单向通道.md)
+* [work_pool练习](docs/oldboy/work_pool练习.md)
+* [select介绍](docs/oldboy/select介绍.md)
+* [异步写日志](docs/oldboy/异步写日志.md)
+* [互斥锁](docs/oldboy/互斥锁.md)
+* [读写互斥锁](docs/oldboy/读写互斥锁.md)
+* [sync Once示例](docs/oldboy/sync_Once示例.md)
+* [sync Map示例](docs/oldboy/sync_Map示例.md)
+* [atomic原子性操作](docs/oldboy/atomic原子性操作.md)
 
