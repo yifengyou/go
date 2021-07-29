@@ -9,6 +9,7 @@ type Draw interface {
 	DrawCircle(radius, x, y int)
 }
 
+// 红圆圈
 type RedCircle struct {
 }
 
@@ -16,6 +17,7 @@ func (g *RedCircle) DrawCircle(radius, x, y int) {
 	fmt.Println("radius、x、y:", radius, x, y)
 }
 
+// 黄圆圈
 type YellowCircle struct {
 }
 
@@ -23,6 +25,7 @@ func (g *YellowCircle) DrawCircle(radius, x, y int) {
 	fmt.Println("radius、x、y:", radius, x, y)
 }
 
+// 图形，放
 type Shape struct {
 	draw Draw
 }

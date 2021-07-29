@@ -51,9 +51,34 @@ C. 行为型模式（11种）
   - 迭代器模式（Iterator）
   - 解释器模式（Interpreter）
 
-其实还有两类：并发型模式和线程池模式
+核心主要是上述三类，23种设计模式。但是，不够，掌握高并发需要了解并发行模式
+---
 
-## 三者之间的区别和联系
+
+D. 并发型模式：
+
+并发模式是指I/O（输入/输出）处理单元和多个逻辑单元之间协调完成任务的方法，
+
+在服务器上主要有两种并发编程模式：半同步/半异步模式 和 领导者/追随者模式
+
+
+多线程编程的12种设计模式：
+
+  - Immutable Object模式（不可变对象）
+  - Guarded Suspension模式（保护性暂挂）
+  - Two-phase Termination模式（两阶段终止）
+  - Promise模式（承诺）
+  - Producer-Consumer模式（生产者-消费者）
+  - Active Object模式（主动对象）
+  - Thread Pool模式（线程池）
+  - Thread Specific Storage模式（线程特有存储）
+  - Serial Thread Confinement模式（串行线程封闭模式）
+  - Pipeline模式（流水线）
+  - Half-sync/Half-async模式（半同步/半异步）
+  - Master-Slave模式（主仆）
+
+
+## 创建型、结构型、行为型三者之间的区别和联系
 
 **创建型模式提供生存环境，结构型模式提供生存理由，行为型模式提供如何生存。**
 

@@ -1,3 +1,11 @@
+/*
+外观（门面）设计模式:
+	内部子系统的任何变化不会影响到Facade接口的变化。
+	Facade 设计模式更注重从架构的层次去看整个系统，而不是单个类的层次。Facade 很多时候更是一种架构设计模式。
+
+关键：
+
+*/
 package Facade
 
 import "fmt"
@@ -10,7 +18,7 @@ func NewCarModel() *CarModel {
 }
 
 func (c *CarModel) SetModel() {
-	fmt.Fprintf(outputWriter, " CarModel - SetModel\n")
+	fmt.Printf(" CarModel - SetModel\n")
 }
 
 type CarEngine struct {
@@ -21,7 +29,7 @@ func NewCarEngine() *CarEngine {
 }
 
 func (c *CarEngine) SetEngine() {
-	fmt.Fprintf(outputWriter, " CarEngine - SetEngine\n")
+	fmt.Printf(" CarEngine - SetEngine\n")
 }
 
 type CarBody struct {
@@ -32,7 +40,7 @@ func NewCarBody() *CarBody {
 }
 
 func (c *CarBody) SetBody() {
-	fmt.Fprintf(outputWriter, " CarBody - SetBody\n")
+	fmt.Printf(" CarBody - SetBody\n")
 }
 
 type CarAccessories struct {
@@ -43,9 +51,10 @@ func NewCarAccessories() *CarAccessories {
 }
 
 func (c *CarAccessories) SetAccessories() {
-	fmt.Fprintf(outputWriter, " CarAccessories - SetAccessories\n")
+	fmt.Printf(" CarAccessories - SetAccessories\n")
 }
 
+// 关键：定义门面结构体
 type CarFacade struct {
 	accessories *CarAccessories
 	body        *CarBody
@@ -53,6 +62,7 @@ type CarFacade struct {
 	model       *CarModel
 }
 
+// 门面实例化方法
 func NewCarFacade() *CarFacade {
 	return &CarFacade{
 		accessories: NewCarAccessories(),
@@ -62,11 +72,12 @@ func NewCarFacade() *CarFacade {
 	}
 }
 
+// 使用门面创建完整后端，对应接口
 func (c *CarFacade) CreateCompleteCar() {
-	fmt.Fprintf(outputWriter, "******** Creating a Car **********\n")
+	fmt.Printf("******** Creating a Car **********\n")
 	c.model.SetModel()
 	c.engine.SetEngine()
 	c.body.SetBody()
 	c.accessories.SetAccessories()
-	fmt.Fprintf(outputWriter, "******** Car creation is completed. **********\n")
+	fmt.Printf("******** Car creation is completed. **********\n")
 }

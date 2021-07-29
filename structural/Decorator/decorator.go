@@ -1,3 +1,9 @@
+/*
+装饰器模式：
+
+关键：
+	父函数调用子函数，可以添加各种hook操作
+ */
 package Decorator
 
 import (
