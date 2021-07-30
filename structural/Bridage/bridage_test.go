@@ -1,12 +1,13 @@
 package Bridage
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
-func TestCircle_Draw(t *testing.T) {
-	redCircle := Circle{}
-	redCircle.Constructor(100, 100, 10, &RedCircle{})
-	yellowCircle := Circle{}
-	yellowCircle.Constructor(200, 200, 20, &YellowCircle{})
-	redCircle.Cook()
-	yellowCircle.Cook()
+func TestErrorNotification_Notify(t *testing.T) {
+	sender := NewEmailMsgSender([]string{"test@test.com"})
+	n := NewErrorNotification(sender)
+	err := n.Notify("test msg")
+	assert.Nil(t, err)
 }

@@ -11,15 +11,15 @@ type Machine struct {
 	current State
 }
 
-func NewMachine() *Machine{
+func NewMachine() *Machine {
 	return &Machine{NewOFF()}
 }
 
-func (m *Machine) setCurrent(s State){
-	m.current=s
+func (m *Machine) setCurrent(s State) {
+	m.current = s
 }
 
-func (m *Machine) On(){
+func (m *Machine) On() {
 	m.current.On(m)
 }
 
@@ -28,36 +28,33 @@ func (m *Machine) Off() {
 }
 
 type ON struct {
-
 }
 
 func NewON() State {
 	return &ON{}
 }
 
-func (o *ON) On(m *Machine){
+func (o *ON) On(m *Machine) {
 	fmt.Println("已经开启")
 }
 
-func (o *ON) Off(m *Machine){
+func (o *ON) Off(m *Machine) {
 	fmt.Println("从On的状态到Off")
 	m.setCurrent(NewOFF())
 }
 
 type OFF struct {
-
 }
 
-func NewOFF() State{
+func NewOFF() State {
 	return &OFF{}
 }
 
-func (o *OFF) On(m *Machine){
+func (o *OFF) On(m *Machine) {
 	fmt.Println("从OFF的状态到ON")
 	m.setCurrent(NewON())
 }
 
-func (o *OFF) Off(m *Machine){
+func (o *OFF) Off(m *Machine) {
 	fmt.Println("已经关闭")
 }
-

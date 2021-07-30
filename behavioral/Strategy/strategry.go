@@ -7,21 +7,20 @@ type Strategy interface {
 }
 
 type strategyA struct {
-
 }
 
-func (s *strategyA) Execute(){
+func (s *strategyA) Execute() {
 	fmt.Println("A plan executed.")
 }
 
-func NewStrategyA() Strategy{
+func NewStrategyA() Strategy {
 	return &strategyA{}
 }
 
 type strategyB struct {
-
 }
-func (s *strategyB) Execute(){
+
+func (s *strategyB) Execute() {
 	fmt.Println("B plan executed.")
 }
 
@@ -33,14 +32,14 @@ type Context struct {
 	strategy Strategy
 }
 
-func NewContext() *Context{
+func NewContext() *Context {
 	return &Context{}
 }
 
-func (c *Context) SetStrategy(strategy Strategy){
-	c.strategy=strategy
+func (c *Context) SetStrategy(strategy Strategy) {
+	c.strategy = strategy
 }
 
-func (c *Context) Execute(){
+func (c *Context) Execute() {
 	c.strategy.Execute()
 }

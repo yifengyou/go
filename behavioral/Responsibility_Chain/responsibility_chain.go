@@ -1,3 +1,11 @@
+/*
+职责链模式：
+
+关键：
+
+参考：
+
+ */
 package Responsibility_Chain
 
 import "strconv"

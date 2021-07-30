@@ -28,10 +28,11 @@ func (n *Number) Value() int {
 	return n.value
 }
 
-func (n *Number) CreateMemento() *Memento{
+// 关键 - 类似做了个备份
+func (n *Number) CreateMemento() *Memento {
 	return NewMemento(n.value)
 }
 
-func (n *Number) ReinstateMemento(memento *Memento){
-	n.value=memento.state
+func (n *Number) ReinstateMemento(memento *Memento) {
+	n.value = memento.state
 }

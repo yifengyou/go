@@ -1,54 +1,56 @@
+/*
+桥接模式：
+	桥接模式是将抽象部分与它的实现部分分离，使它们都可以独立地变化。
+	它是一种对象结构型模式，又称为柄体(Handle and Body)模式或接口(Interfce)模式。
+关键：
+
+参考：
+
+https://lailin.xyz/post/bridge.html
+
+*/
 package Bridage
 
-import (
-	"fmt"
-	"time"
-)
 
-type Draw interface {
-	DrawCircle(radius, x, y int)
+// IMsgSender IMsgSender
+type IMsgSender interface {
+	Send(msg string) error
 }
 
-// 红圆圈
-type RedCircle struct {
+// EmailMsgSender 发送邮件
+// 可能还有 电话、短信等各种实现
+type EmailMsgSender struct {
+	emails []string
 }
 
-func (g *RedCircle) DrawCircle(radius, x, y int) {
-	fmt.Println("radius、x、y:", radius, x, y)
+// NewEmailMsgSender NewEmailMsgSender
+func NewEmailMsgSender(emails []string) *EmailMsgSender {
+	return &EmailMsgSender{emails: emails}
 }
 
-// 黄圆圈
-type YellowCircle struct {
+// Send Send
+func (s *EmailMsgSender) Send(msg string) error {
+	// 这里去发送消息
+	return nil
 }
 
-func (g *YellowCircle) DrawCircle(radius, x, y int) {
-	fmt.Println("radius、x、y:", radius, x, y)
+// INotification 通知接口
+type INotification interface {
+	Notify(msg string) error
 }
 
-// 图形，放
-type Shape struct {
-	draw Draw
+// ErrorNotification 错误通知
+// 后面可能还有 warning 各种级别
+type ErrorNotification struct {
+	sender IMsgSender
 }
 
-func (s *Shape) Shape(d Draw) {
-	s.draw = d
-	time.Now().Unix()
+// NewErrorNotification NewErrorNotification
+func NewErrorNotification(sender IMsgSender) *ErrorNotification {
+	return &ErrorNotification{sender: sender}
 }
 
-type Circle struct {
-	shape  Shape
-	x      int
-	y      int
-	radius int
-}
-
-func (c *Circle) Constructor(x int, y int, radius int, draw Draw) {
-	c.x = x
-	c.y = y
-	c.radius = radius
-	c.shape.Shape(draw)
-}
-
-func (c *Circle) Cook() {
-	c.shape.draw.DrawCircle(c.radius, c.x, c.y)
+// Notify 发送通知
+func (n *ErrorNotification) Notify(msg string) error {
+	return n.sender.Send(msg)
 }

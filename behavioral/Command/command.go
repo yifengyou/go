@@ -4,9 +4,11 @@ import "fmt"
 
 type Person struct {
 	name string
+	// Person具备Command
 	cmd  Command
 }
 type Command struct {
+	// Command具备Person
 	person *Person
 	method func()
 }

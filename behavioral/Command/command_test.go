@@ -10,5 +10,4 @@ func TestCommand_Execute(t *testing.T) {
 	laoli := NewPerson("li", NewCommand(&laoding, laoding.Wash))
 
 	laoli.Talk()
-
 }

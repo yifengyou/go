@@ -1,3 +1,11 @@
+/*
+观察者模式：
+
+关键：
+
+参考：
+
+ */
 package Visitor
 
 import "fmt"
@@ -6,18 +14,16 @@ type IVisitor interface {
 	Visit()
 }
 type WeiBoVisitor struct {
-
 }
 
-func (w WeiBoVisitor) Visit(){
+func (w WeiBoVisitor) Visit() {
 	fmt.Println("Visit WeiBo")
 }
 
 type IQIYIVisitor struct {
-
 }
 
-func (i IQIYIVisitor) Visit(){
+func (i IQIYIVisitor) Visit() {
 	fmt.Println("Visit IQiYi")
 }
 
@@ -26,9 +32,8 @@ type IElement interface {
 }
 
 type Element struct {
-
 }
 
-func (e Element) Accept(v IVisitor){
+func (e Element) Accept(v IVisitor) {
 	v.Visit()
 }

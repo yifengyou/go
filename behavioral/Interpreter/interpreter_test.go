@@ -13,5 +13,5 @@ func TestInterpreter(t *testing.T) {
 	variables["x"] = &Integer{10}
 	variables["z"] = &Integer{41}
 	result := sentence.Interpret(variables)
-	assert.Equal(t, 51,result)
+	assert.Equal(t, 51, result)
 }
