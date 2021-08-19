@@ -5,4 +5,5 @@
 * [net](docs/net.md)
 * [fmt](docs/fmt.md)
 * [os](docs/os.md)
+* [time](docs/time.md)
 

@@ -14,6 +14,8 @@
 <!-- /MDTOC -->
 # fmt
 
+* 区别于内置函数print、println
+
 ## func Print(a ...interface{}) (n int, err error)
 ## func Println(a ...interface{}) (n int, err error)
 
@@ -212,7 +214,13 @@ fmt.Fprintf(file, "hahahhahah\n")
 ```
 
 
+其中io.Writer是个接口，实现了Write方法就行
 
+```
+type Writer interface {
+	Write(p []byte) (n int, err error)
+}
+```
 
 
 
