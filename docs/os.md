@@ -105,6 +105,33 @@ func main() {
 }
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+## func Stat(name string) (FileInfo, error)
+## func IsNotExist(err error) bool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 参考
 
 * <https://colobu.com/2016/10/12/go-file-operations/#%E5%88%9B%E5%BB%BA%E7%A9%BA%E6%96%87%E4%BB%B6>
