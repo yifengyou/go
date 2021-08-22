@@ -71,7 +71,7 @@ fmt.Println("a", "b", "c") # a b c
 | %#v   | 值的默认格式表示 + 字段名称（仅有字段时显示，一般为struct） + go类型标识 |
 | %%    | 百分号  |
 | %T    | 输出对应的类型  |
-| %t	  | 单词true或false  |
+| %t	  | 单词true或false，**常规记忆%b是bool，然而%b是二进制表示**  |
 | %b	| 表示为二进制 |
 | %d	| 表示为十进制 |
 | %o	| 表示为八进制 |
@@ -81,7 +81,11 @@ fmt.Println("a", "b", "c") # a b c
 | %p	| 十六进制表示，前缀 0x, 不存在%P|
 | %s  | 	直接输出字符串或者[]byte|
 
+罕见操作：
 
+| 格式化标记 |	格式化含义 |
+| ----  | ----  |
+| %w    | 包裹error类型，Go1.13新增  |
 
 实例：
 
@@ -224,15 +228,38 @@ type Writer interface {
 }
 ```
 
+## func Errorf(format string, a ...interface{}) error
+
+* Errorf函数根据format参数生成格式化字符串并返回一个包含该error错误类型（根本就是字符串）
+
+```
+// Errorf formats according to a format specifier and returns the string
+// as a value that satisfies error.
+func Errorf(format string, a ...interface{}) error {
+	return errors.New(Sprintf(format, a...))
+}
+```
+
+```
+func Sprintf(format string, a ...interface{}) string
+```
+
+* Go1.13版本为fmt.Errorf函数新加了一个%w占位符用来生成一个可以包裹Error的Wrapping Error
+* 通常使用这种方式来自定义错误类型，例如：
+
+```
+err := fmt.Errorf("这是一个错误")
+Go1.13版本为fmt.Errorf函数新加了一个%w占位符用来生成一个可以包裹Error的Wrapping Error。
+e := errors.New("原始错误e")
+w := fmt.Errorf("Wrap了一个错误%w", e)
+```
 
 
 
 
+## 参考
 
-
-
-
-
+* <https://zhuanlan.zhihu.com/p/111204359>
 
 
 ---
