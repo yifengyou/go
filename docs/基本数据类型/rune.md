@@ -1,8 +1,12 @@
 # rune
 
-
+关键词：编码、字符边界、码点
 
 ## 字符串、[]byte 和 []rune关系
+
+![20210823_140017_80](image/20210823_140017_80.png)
+
+* []byte 与 [] rune不能直接转换，只能间接转换
 
 
 ```
@@ -53,9 +57,20 @@ fmt.Println("rune:", len([]rune(str)))
 * byte 等同于uint8，常用来处理ascii字符
 * rune 等同于int32,常用来处理unicode或utf-8字符
 * rune理解为 **一个 可以表示unicode 编码的值int 的值，称为码点（code point）**。只不过go语言把这个码点抽象为rune
+* rune类型的值需要由单引号包裹，形式有多种，如下表格：
 
+```
+var r rune = '\U0010FFFF'
+fmt.Printf("%T - %#v\n", r, r)
+// int32 - 1114111
+fmt.Println(string(r))
+// 􏿿
+fmt.Println([]byte(string(r)))
+// [244 143 191 191]
+fmt.Println([]byte(r))
+//cannot convert r (type rune) to type []byte
+```
 
-
-
+![20210823_140619_76](image/20210823_140619_76.png)
 
 ---
