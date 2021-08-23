@@ -14,8 +14,22 @@
 
 # time
 
+## 时间度量单位
+
+
+```
+time.Hour
+time.Minute
+time.Second
+time.Millisecond  //1000
+time.Microsecond  //1000
+time.Nanosecond   //1000
+```
+
 
 ## func Sleep(d Duration)
+
+* 参数需要提供时间单位的整数倍数
 
 ```
 type Duration int64
@@ -43,6 +57,30 @@ const (
 
 
 ## type Duration
+
+```
+// A Duration represents the elapsed time between two instants
+// as an int64 nanosecond count. The representation limits the
+// largest representable duration to approximately 290 years.
+type Duration int64
+```
+
+* 根据上面定义，毫无疑问，time.Duration()是类型转换
+* 常规time.Sleep都是要求Duration类型，所以一般都要进行类型转换，除非常熟
+
+```
+//tw.interval是int64类型，但是编译器只要Duration，强类型要求必须转换，因此
+time.Sleep(time.Duration(tw.interval) * time.Millisecond)
+
+//但如果是常数字面量就不需要
+time.Sleep(123 * time.Millisecond)
+```
+
+
+
+
+
+
 
 ```
 func ParseDuration(s string) (Duration, error)

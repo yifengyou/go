@@ -4,14 +4,17 @@
    - [type Buffer](#type-buffer)   
       - [func NewBuffer(buf []byte) *Buffer](#func-newbufferbuf-byte-buffer)   
       - [func NewBufferString(s string) *Buffer](#func-newbufferstrings-string-buffer)   
-   - [func (b *Buffer) String() string](#func-b-buffer-string-string)   
-   - [func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)](#func-b-buffer-readfromr-ioreader-n-int64-err-error)   
-   - [func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)](#func-b-buffer-writetow-iowriter-n-int64-err-error)   
+      - [func (b *Buffer) String() string](#func-b-buffer-string-string)   
+      - [func (b *Buffer) ReadByte() (c byte, err error)](#func-b-buffer-readbyte-c-byte-err-error)   
+      - [func (b *Buffer) WriteByte(c byte) error](#func-b-buffer-writebytec-byte-error)   
+      - [func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)](#func-b-buffer-readfromr-ioreader-n-int64-err-error)   
+      - [func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)](#func-b-buffer-writetow-iowriter-n-int64-err-error)   
    - [type Reader](#type-reader)   
       - [func NewReader(b []byte) *Reader](#func-newreaderb-byte-reader)   
    - [参考](#参考)   
 
 <!-- /MDTOC -->
+
 # bytes
 
 ## type Buffer
@@ -74,7 +77,7 @@ func (b *Buffer) Reset()
 func (b *Buffer) Len() int
 func (b *Buffer) Bytes() []byte
 
-## func (b *Buffer) String() string
+### func (b *Buffer) String() string
 
 
 
@@ -83,7 +86,6 @@ func (b *Buffer) Truncate(n int)
 func (b *Buffer) Grow(n int)
 func (b *Buffer) Read(p []byte) (n int, err error)
 func (b *Buffer) Next(n int) []byte
-func (b *Buffer) ReadByte() (c byte, err error)
 func (b *Buffer) UnreadByte() error
 func (b *Buffer) ReadRune() (r rune, size int, err error)
 func (b *Buffer) UnreadRune() error
@@ -91,11 +93,23 @@ func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 func (b *Buffer) ReadString(delim byte) (line string, err error)
 func (b *Buffer) Write(p []byte) (n int, err error)
 func (b *Buffer) WriteString(s string) (n int, err error)
-func (b *Buffer) WriteByte(c byte) error
 func (b *Buffer) WriteRune(r rune) (n int, err error)
 ```
 
-## func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
+
+### func (b *Buffer) ReadByte() (c byte, err error)
+### func (b *Buffer) WriteByte(c byte) error
+
+* WriteByte将字节c写入缓冲中，如必要会增加缓冲容量，返回值总是nil，但仍保留以匹配bufio.Writer的WriteByte方法。
+* 如果缓冲太大，WriteByte会采用错误值ErrTooLarge引发panic。
+* ReadBytes读取直到第一次遇到delim字节，返回一个包含已读取的数据和delim字节的切片。
+* 如果ReadBytes方法在读取到delim之前遇到了错误，它会返回在错误之前读取的数据以及该错误（一般是io.EOF）。
+* 当且仅当ReadBytes方法返回的切片不以delim结尾时，会返回一个非nil的错误。
+
+
+
+
+### func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 
 
 示例：
@@ -111,9 +125,15 @@ func main() {
 
 
 
-## func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
+### func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
 
-示例：
+
+
+
+
+
+
+
 
 
 ## type Reader

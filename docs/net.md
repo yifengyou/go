@@ -33,9 +33,14 @@
 ### func (c *conn) Read(b []byte) (int, error)
 ### func (c *conn) Write(b []byte) (int, error)
 ### func (c *conn) Close() error
+
+
+
+
 ### func (c *conn) RemoteAddr() Addr
 
-
+* RemoteAddr() 可以获取客户端的地址和端口号
+*
 
 
 
@@ -44,6 +49,28 @@
 ## TCP
 
 ### func ResolveTCPAddr(network, address string) (*TCPAddr, error)
+
+```
+func main() {
+	log.Println("begin dial...")
+	conn, err := net.Dial("tcp", "192.168.1.199:22")
+	if err != nil {
+		log.Println("dial error:", err)
+		return
+	}
+	fmt.Printf("%T -- %#v", conn.RemoteAddr(), conn.RemoteAddr())
+	defer conn.Close()
+	log.Println("dial ok")
+}
+```
+
+输出:
+
+```
+*net.TCPAddr -- &net.TCPAddr{IP:net.IP{0xc0, 0xa8, 0x1, 0xc7}, Port:22, Zone:""}
+```
+
+
 
 ### func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
 

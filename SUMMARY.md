@@ -5,6 +5,7 @@
 * [基本数据类型](docs/基本数据类型.md)
     * [string](docs/基本数据类型/string.md)
     * [map](docs/基本数据类型/map.md)
+    * [rune](docs/基本数据类型/rune.md)
 * [net](docs/net.md)
 * [fmt](docs/fmt.md)
 * [os](docs/os.md)
@@ -20,3 +21,6 @@
 * [sync](docs/sync.md)
     * [atomic](docs/sync/atomic.md)
 * [reflect](docs/reflect.md)
+    * [atomic](docs/sync/atomic.md)
+* [testing](docs/testing.md)
+
