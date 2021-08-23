@@ -2,12 +2,42 @@
 
 
 
-
-
-
-
-
 # os
+
+
+## 内置变量
+
+```
+var (
+    ErrInvalid    = errors.New("invalid argument")
+    ErrPermission = errors.New("permission denied")
+    ErrExist      = errors.New("file already exists")
+    ErrNotExist   = errors.New("file does not exist")
+)
+```
+一些可移植的、共有的系统调用错误。
+```
+var (
+    Stdin  = NewFile(uintptr(syscall.Stdin), "/dev/stdin")
+    Stdout = NewFile(uintptr(syscall.Stdout), "/dev/stdout")
+    Stderr = NewFile(uintptr(syscall.Stderr), "/dev/stderr")
+)
+```
+Stdin、Stdout和Stderr是指向标准输入、标准输出、标准错误输出的文件描述符。
+
+```
+var Args []string
+```
+
+* Args保管了命令行参数，第一个是程序名。
+* 若要获取参数，常规做法是 ```os.Args[1:]```
+
+实例：
+
+```
+fmt.Println(os.Args) // [./tmp/go/main 1 2 3 4]
+```
+
 
 
 ## func Create(name string) (*File, error)
@@ -249,7 +279,9 @@ func main() {
 
 
 
+## 环境变量相关
 
+### func LookupEnv(key string) (string, bool)
 
 ## func Exit(code int)
 

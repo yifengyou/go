@@ -149,6 +149,12 @@ Now返回当前本地时间。
 * UnixMilli、UnixMicro在Go 1.17中有，不是所有版本都有
 
 
+### func (t Time) Add(d Duration) Time
+
+### func (t Time) AddDate(years int, months int, days int) Time
+
+### func (t Time) Sub(u Time) Duration
+
 ```
 func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time
 func Parse(layout, value string) (Time, error)
@@ -176,9 +182,6 @@ func (t Time) Hour() int
 func (t Time) Minute() int
 func (t Time) Second() int
 func (t Time) Nanosecond() int
-func (t Time) Add(d Duration) Time
-func (t Time) AddDate(years int, months int, days int) Time
-func (t Time) Sub(u Time) Duration
 func (t Time) Round(d Duration) Time
 func (t Time) Truncate(d Duration) Time
 func (t Time) Format(layout string) string

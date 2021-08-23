@@ -28,3 +28,5 @@
 * [testing](docs/testing.md)
 * [unicode](docs/unicode.md)
     * [utf8](docs/unicode/utf8.md)
+* [bufio](docs/bufio.md)
+

@@ -1,3 +1,12 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [json](#json)   
+   - [func Unmarshal(data []byte, v interface{}) error](#func-unmarshaldata-byte-v-interface-error)   
+   - [func Marshal(v interface{}) ([]byte, error)](#func-marshalv-interface-byte-error)   
+   - [func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)](#func-marshalindentv-interface-prefix-indent-string-byte-error)   
+
+<!-- /MDTOC -->
+
 # json
 
 * json包实现了json对象的编解码，参见RFC 4627
