@@ -15,6 +15,7 @@
 * [strings](docs/strings.md)
 * [errors](docs/errors.md)
 * [bytes](docs/bytes.md)
+* [strconv](docs/strconv.md)
 * [encoding](docs/encoding.md)
     * [json](docs/encoding/json.md)
     * [binary](docs/encoding/binary.md)

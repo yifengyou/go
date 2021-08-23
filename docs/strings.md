@@ -1,3 +1,13 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [strings](#strings)   
+   - [func Contains(s, substr string) bool](#func-containss-substr-string-bool)   
+   - [func ContainsAny(s, chars string) bool](#func-containsanys-chars-string-bool)   
+   - [func HasPrefix(s, prefix string) bool](#func-hasprefixs-prefix-string-bool)   
+   - [func HasSuffix(s, suffix string) bool](#func-hassuffixs-suffix-string-bool)   
+   - [func Split(s, sep string) []string](#func-splits-sep-string-string)   
+
+<!-- /MDTOC -->
 # strings
 
 ## func Contains(s, substr string) bool
@@ -37,9 +47,20 @@ fmt.Println(strings.ContainsAny(s2, ""))
 
 
 
+## func Split(s, sep string) []string
 
+* sep 不可用单引号，若是字面量必须用双引号
+* 返回的是字符串切片
 
+```
+s := "1 2 3 4 5 6"
+sp := strings.Split(s, " ")
+//sp := strings.Split(s, ' ')
+fmt.Printf("%T - %v", sp, sp)
+// []string - [1 2 3 4 5 6]
+```
 
+![20210823_143421_80](image/20210823_143421_80.png)
 
 
 
