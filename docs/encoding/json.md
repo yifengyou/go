@@ -4,6 +4,10 @@
    - [func Unmarshal(data []byte, v interface{}) error](#func-unmarshaldata-byte-v-interface-error)   
    - [func Marshal(v interface{}) ([]byte, error)](#func-marshalv-interface-byte-error)   
    - [func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)](#func-marshalindentv-interface-prefix-indent-string-byte-error)   
+   - [type Encoder](#type-encoder)   
+      - [func NewEncoder(w io.Writer) *Encoder](#func-newencoderw-iowriter-encoder)   
+      - [func (enc *Encoder) Encode(v interface{}) error](#func-enc-encoder-encodev-interface-error)   
+      - [func (enc *Encoder) SetEscapeHTML(on bool)](#func-enc-encoder-setescapehtmlon-bool)   
 
 <!-- /MDTOC -->
 
@@ -116,6 +120,51 @@ func main ( ) {
     os. Stdout . Write ( b )
 }
 ```
+
+
+## type Encoder
+
+```
+// An Encoder writes JSON values to an output stream.
+type Encoder struct {
+	w          io.Writer
+	err        error
+	escapeHTML bool
+
+	indentBuf    *bytes.Buffer
+	indentPrefix string
+	indentValue  string
+}
+```
+
+
+### func NewEncoder(w io.Writer) *Encoder
+
+NewEncoder创建一个将数据写入w的*Encoder。
+
+### func (enc *Encoder) Encode(v interface{}) error
+
+Encode将v的json编码写入输出流，并会写入一个换行符，参见Marshal函数的文档获取细节信息
+
+### func (enc *Encoder) SetEscapeHTML(on bool)
+
+* 默认情况下，使用json.Marshal，会转换html标签。但在某些情况下需要关闭
+* 修改Encoder结构体中的escapeHTML标志位
+
+```
+// SetEscapeHTML specifies whether problematic HTML characters
+// should be escaped inside JSON quoted strings.
+// The default behavior is to escape &, <, and > to \u0026, \u003c, and \u003e
+// to avoid certain safety problems that can arise when embedding JSON in HTML.
+//
+// In non-HTML settings where the escaping interferes with the readability
+// of the output, SetEscapeHTML(false) disables this behavior.
+func (enc *Encoder) SetEscapeHTML(on bool) {
+	enc.escapeHTML = on
+}
+```
+
+
 
 
 
