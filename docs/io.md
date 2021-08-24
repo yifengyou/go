@@ -23,7 +23,10 @@ type Reader interface {
 ```
 
 
+## func WriteString(w Writer, s string) (n int, err error)
 
+* WriteString函数将字符串s的内容写入w中。
+* 如果w已经实现了WriteString方法，函数会直接调用该方法。
 
 
 
