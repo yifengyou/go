@@ -1,6 +1,19 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [strconv](#strconv)   
+   - [func ParseInt(s string, base int, bitSize int) (i int64, err error)](#func-parseints-string-base-int-bitsize-int-i-int64-err-error)   
+   - [func ParseBool(str string) (bool, error)](#func-parseboolstr-string-bool-error)   
+   - [func Atoi(s string) (i int, err error)](#func-atois-string-i-int-err-error)   
+
+<!-- /MDTOC -->
+
 # strconv
 
-strconv包实现了基本数据类型和 其字符串表示 的相互转换。
+```
+import "strconv"
+```
+
+strconv包实现了基本数据类型和 字符串表示 的相互转换。
 
 ## func ParseInt(s string, base int, bitSize int) (i int64, err error)
 
@@ -9,6 +22,11 @@ strconv包实现了基本数据类型和 其字符串表示 的相互转换。
 * bitSize指定结果必须能无溢出赋值的整数类型，值为：0、8、16、32、64 分别代表 int、int8、int16、int32、int64；返回的err是*NumErr类型的，如果语法有误，err.Error = ErrSyntax；如果结果超出类型范围err.Error = ErrRange。
 
 
+## func ParseBool(str string) (bool, error)
+
+
+* 返回字符串表示的bool值。
+* 它接受1、0、t、f、T、F、true、false、True、False、TRUE、FALSE；否则返回错误。
 
 
 

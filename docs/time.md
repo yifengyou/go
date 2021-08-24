@@ -1,17 +1,21 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
 - [time](#time)   
+   - [时间度量单位](#时间度量单位)   
    - [func Sleep(d Duration)](#func-sleepd-duration)   
-   - [type Duration](#type-duration)   
    - [type Time](#type-time)   
       - [func Now() Time](#func-now-time)   
       - [func (t Time) Unix() int64](#func-t-time-unix-int64)   
       - [func (t Time) UnixMilli() int64](#func-t-time-unixmilli-int64)   
       - [func (t Time) UnixMicro() int64](#func-t-time-unixmicro-int64)   
       - [func (t Time) UnixNano() int64](#func-t-time-unixnano-int64)   
+      - [func (t Time) Add(d Duration) Time](#func-t-time-addd-duration-time)   
+      - [func (t Time) AddDate(years int, months int, days int) Time](#func-t-time-adddateyears-int-months-int-days-int-time)   
+      - [func (t Time) Sub(u Time) Duration](#func-t-time-subu-time-duration)   
+   - [type Duration](#type-duration)   
+      - [func ParseDuration(s string) (Duration, error)](#func-parsedurations-string-duration-error)   
 
 <!-- /MDTOC -->
-
 # time
 
 ## 时间度量单位
@@ -56,41 +60,6 @@ const (
 
 
 
-## type Duration
-
-```
-// A Duration represents the elapsed time between two instants
-// as an int64 nanosecond count. The representation limits the
-// largest representable duration to approximately 290 years.
-type Duration int64
-```
-
-* 根据上面定义，毫无疑问，time.Duration()是类型转换
-* 常规time.Sleep都是要求Duration类型，所以一般都要进行类型转换，除非常熟
-
-```
-//tw.interval是int64类型，但是编译器只要Duration，强类型要求必须转换，因此
-time.Sleep(time.Duration(tw.interval) * time.Millisecond)
-
-//但如果是常数字面量就不需要
-time.Sleep(123 * time.Millisecond)
-```
-
-
-
-
-
-
-
-```
-func ParseDuration(s string) (Duration, error)
-func Since(t Time) Duration
-func (d Duration) Hours() float64
-func (d Duration) Minutes() float64
-func (d Duration) Seconds() float64
-func (d Duration) Nanoseconds() int64
-func (d Duration) String() string
-```
 
 
 ## type Time
@@ -220,7 +189,40 @@ func (t *Time) UnmarshalText(data []byte) error
 ```
 
 
+## type Duration
 
+```
+// A Duration represents the elapsed time between two instants
+// as an int64 nanosecond count. The representation limits the
+// largest representable duration to approximately 290 years.
+type Duration int64
+```
+
+* 根据上面定义，毫无疑问，time.Duration()是类型转换
+* 常规time.Sleep都是要求Duration类型，所以一般都要进行类型转换，除非常数
+
+```
+//tw.interval是int64类型，但是编译器只要Duration，强类型要求必须转换，因此
+time.Sleep(time.Duration(tw.interval) * time.Millisecond)
+
+//但如果是常数字面量就不需要
+time.Sleep(123 * time.Millisecond)
+```
+
+
+
+```
+func ParseDuration(s string) (Duration, error)
+func Since(t Time) Duration
+func (d Duration) Hours() float64
+func (d Duration) Minutes() float64
+func (d Duration) Seconds() float64
+func (d Duration) Nanoseconds() int64
+func (d Duration) String() string
+```
+
+
+### func ParseDuration(s string) (Duration, error)
 
 
 

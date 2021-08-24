@@ -2,6 +2,8 @@
 
 - [bytes](#bytes)   
    - [type Buffer](#type-buffer)   
+      - [func (b *Buffer) Bytes() []byte](#func-b-buffer-bytes-byte)   
+      - [func (b *Buffer) String() string](#func-b-buffer-string-string)   
       - [func NewBuffer(buf []byte) *Buffer](#func-newbufferbuf-byte-buffer)   
       - [func NewBufferString(s string) *Buffer](#func-newbufferstrings-string-buffer)   
       - [func (b *Buffer) String() string](#func-b-buffer-string-string)   
@@ -15,7 +17,19 @@
 
 <!-- /MDTOC -->
 
+
+
+
 # bytes
+
+```
+import "bytes"
+```
+
+* bytes包实现了操作[]byte的常用函数。
+* 函数和strings包的函数相当类似。
+
+
 
 ## type Buffer
 
@@ -32,6 +46,24 @@ type Buffer struct {
 * Buffer 是一个实现了读写方法的可变大小的字节缓冲。
 * Buffer 类型的零值是一个空的可用于读写的缓冲。
 * 从 bytes.Buffer 读取数据后，**被成功读取的数据仍保留在原缓冲区**，只是无法被使用(坑)，因为缓冲区的可见数据从偏移 off 开始，即buf[off : len(buf)]
+
+### func (b *Buffer) Bytes() []byte
+
+* 返回未读取部分字节数据的切片，len(b.Bytes()) == b.Len()。
+* 如果中间没有调用其他方法，修改返回的切片的内容会直接改变Buffer的内容
+
+### func (b *Buffer) String() string
+
+* 将未读取部分的字节数据作为字符串返回
+* 如果b是nil指针，会返回"<nil>"。
+
+
+
+
+
+
+
+
 
 
 

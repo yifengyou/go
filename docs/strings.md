@@ -6,9 +6,24 @@
    - [func HasPrefix(s, prefix string) bool](#func-hasprefixs-prefix-string-bool)   
    - [func HasSuffix(s, suffix string) bool](#func-hassuffixs-suffix-string-bool)   
    - [func Split(s, sep string) []string](#func-splits-sep-string-string)   
+   - [func TrimPrefix(s, prefix string) string](#func-trimprefixs-prefix-string-string)   
+   - [func TrimSuffix(s, suffix string) string](#func-trimsuffixs-suffix-string-string)   
+   - [func Title(s string) string](#func-titles-string-string)   
 
 <!-- /MDTOC -->
+
+
 # strings
+
+```
+import "strings"
+```
+
+* strings包实现了用于操作字符的简单函数
+* 常规操作无非就是CRUD
+
+
+
 
 ## func Contains(s, substr string) bool
 
@@ -63,10 +78,43 @@ fmt.Printf("%T - %v", sp, sp)
 ![20210823_143421_80](image/20210823_143421_80.png)
 
 
+## func TrimPrefix(s, prefix string) string
+
+* 返回去除s可能的前缀prefix的字符串。
+
+实例：
+
+```
+var s = "Goodbye,, world!"
+s = strings.TrimPrefix(s, "Goodbye,")
+s = strings.TrimPrefix(s, "Howdy,")
+fmt.Print("Hello" + s) // Hello, world!
+```
 
 
+## func TrimSuffix(s, suffix string) string
+
+返回去除s可能的后缀suffix的字符串。
+
+```
+var s = "Hello, goodbye, etc!"
+s = strings.TrimSuffix(s, "goodbye, etc!")
+s = strings.TrimSuffix(s, "planet")
+fmt.Print(s, "world!") // Hello, world!
+```
 
 
+## func Title(s string) string
+
+
+* 返回s中每个单词的首字母都改为标题格式的字符串拷贝。
+
+BUG: Title用于划分单词的规则不能很好的处理Unicode标点符号。
+
+```
+fmt.Println(strings.Title("her royal highness"))
+//Her Royal Highness
+```
 
 
 

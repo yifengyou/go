@@ -8,6 +8,7 @@
       - [func NewEncoder(w io.Writer) *Encoder](#func-newencoderw-iowriter-encoder)   
       - [func (enc *Encoder) Encode(v interface{}) error](#func-enc-encoder-encodev-interface-error)   
       - [func (enc *Encoder) SetEscapeHTML(on bool)](#func-enc-encoder-setescapehtmlon-bool)   
+   - [func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error](#func-indentdst-bytesbuffer-src-byte-prefix-indent-string-error)   
 
 <!-- /MDTOC -->
 
@@ -150,6 +151,8 @@ Encode将v的json编码写入输出流，并会写入一个换行符，参见Mar
 
 * 默认情况下，使用json.Marshal，会转换html标签。但在某些情况下需要关闭
 * 修改Encoder结构体中的escapeHTML标志位
+* json.Marshal 默认 escapeHtml 为true,会转义 <、>、&
+
 
 ```
 // SetEscapeHTML specifies whether problematic HTML characters
@@ -164,6 +167,50 @@ func (enc *Encoder) SetEscapeHTML(on bool) {
 }
 ```
 
+实例：
+
+* json.Marshal默认会转义<、>、&
+
+```
+Content := "http://tencent.com?id=123&test=1&str=<abc>"
+jsonByte, _ := json.Marshal(Content)
+fmt.Println(string(jsonByte))
+// "http://tencent.com?id=123\u0026test=1\u0026str=\u003cabc\u003e"
+```
+
+可以用字符串替换处理
+
+```
+content = strings.Replace(content, "\\u003c", "<", -1)
+content = strings.Replace(content, "\\u003e", ">", -1)
+content = strings.Replace(content, "\\u0026", "&", -1)
+```
+
+使用json.Encoder
+
+```
+Content := "http://tencent.com?id=123&test=1&str=<abc>"
+bf := bytes.NewBuffer([]byte{})
+jsonEncoder := json.NewEncoder(bf)
+jsonEncoder.SetEscapeHTML(false)
+jsonEncoder.Encode(Content)
+fmt.Println(bf.String())
+// "http://tencent.com?id=123&test=1&str=<abc>"
+```
+
+## func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error
+
+* Indent函数将json编码的调整缩进之后写入dst。
+* 每一个json元素/数组都另起一行开始，以prefix为起始，一或多个indent缩进（数目看嵌套层数）。
+* prefix一般为""
+* indent一般为"\t"
+* 写入dst的数据起始没有prefix字符，也没有indent字符，最后也不换行，因此可以更好的嵌入其他格式化后的json数据里。
+
+## func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
+
+* MarshalIndent类似Marshal但会使用缩进将输出格式化。
+* prefix一般为""
+* indent一般为"\t"
 
 
 
