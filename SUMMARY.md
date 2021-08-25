@@ -11,6 +11,7 @@
 * [net](docs/net.md)
 * [fmt](docs/fmt.md)
 * [os](docs/os.md)
+    * [signal](docs/os/signal.md)
 * [time](docs/time.md)
 * [strings](docs/strings.md)
 * [errors](docs/errors.md)
@@ -29,4 +30,6 @@
 * [unicode](docs/unicode.md)
     * [utf8](docs/unicode/utf8.md)
 * [bufio](docs/bufio.md)
+* [syscall](docs/syscall.md)
+* [sort](docs/sort.md)
 
