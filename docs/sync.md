@@ -150,9 +150,75 @@ func (rw *RWMutex) RLocker() Locker {
 
 
 ## type WaitGroup
+
+```
+// A WaitGroup waits for a collection of goroutines to finish.
+// The main goroutine calls Add to set the number of
+// goroutines to wait for. Then each of the goroutines
+// runs and calls Done when finished. At the same time,
+// Wait can be used to block until all goroutines have finished.
+//
+// A WaitGroup must not be copied after first use.
+type WaitGroup struct {
+	noCopy noCopy
+
+	// 64-bit value: high 32 bits are counter, low 32 bits are waiter count.
+	// 64-bit atomic operations require 64-bit alignment, but 32-bit
+	// compilers do not ensure it. So we allocate 12 bytes and then use
+	// the aligned 8 bytes in them as state, and the other 4 as storage
+	// for the sema.
+	state1 [3]uint32
+}
+```
+
+* WaitGroup用于等待一组线程的结束。
+* 父线程调用Add方法来设定应等待的线程的数量。
+* 每个被等待的线程在结束时应调用Done方法。
+* 同时，主线程里可以调用Wait方法阻塞至所有线程结束。
+
+
+实例：
+
+```
+var wg sync.WaitGroup
+var urls = []string{
+    "http://www.golang.org/",
+    "http://www.google.com/",
+    "http://www.somestupidname.com/",
+}
+for _, url := range urls {
+    // Increment the WaitGroup counter.
+    wg.Add(1)
+    // Launch a goroutine to fetch the URL.
+    go func(url string) {
+        // Decrement the counter when the goroutine completes.
+        defer wg.Done()
+        // Fetch the URL.
+        http.Get(url)
+    }(url)
+}
+// Wait for all HTTP fetches to complete.
+// 如果不wait，主进程退出，协程也都要结束掉。甚至可能都还没开始执行
+wg.Wait()
+```
+
 ### func (wg *WaitGroup) Add(delta int)
+
+* Add方法向内部计数加上delta，delta可以是负数；
+* 如果内部计数器变为0，Wait方法阻塞等待的所有线程都会释放，
+* 如果计数器小于0，方法panic。
+* 注意Add加上正数的调用应在Wait之前，否则Wait可能只会等待很少的线程。
+* 一般来说本方法应在创建新的线程或者其他应等待的事件之前调用。
+* 提前比较需要wait的计数
+
 ### func (wg *WaitGroup) Done()
+
+* Done方法减少WaitGroup计数器的值，应在协程的最后执行
+
+
 ### func (wg *WaitGroup) Wait()
+
+* Wait方法阻塞直到WaitGroup计数器减为0
 
 
 

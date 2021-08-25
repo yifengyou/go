@@ -9,6 +9,8 @@
 * [基本写法](docs/基本写法.md)
     * [range范围](docs/基本写法/range范围.md)
 * [net](docs/net.md)
+    * [http](docs/net/http.md)
+    * [url](docs/net/url.md)
 * [fmt](docs/fmt.md)
 * [os](docs/os.md)
     * [signal](docs/os/signal.md)
