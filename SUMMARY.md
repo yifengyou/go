@@ -34,4 +34,6 @@
 * [bufio](docs/bufio.md)
 * [syscall](docs/syscall.md)
 * [sort](docs/sort.md)
+* [flag](docs/flag.md)
+* [context](docs/context.md)
 

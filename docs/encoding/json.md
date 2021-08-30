@@ -103,22 +103,23 @@ func main() {
 ## func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 
 ```
-func main ( ) {
-    type ColorGroup struct {
-        ID     int
-        Name   string
-        Colors [ ] string
-    }
-    group := ColorGroup {
-        ID :     1 ,
-        Name :   "Reds" ,
-        Colors : [ ] string { "Crimson" , "Red" , "Ruby" , "Maroon" } ,
-    }
-    b , err := json. Marshal ( group )
-    if err != nil {
-        fmt. Println ( "error:" , err )
-    }
-    os. Stdout . Write ( b )
+func main() {
+	type ColorGroup struct {
+		ID     int
+		Name   string
+		Colors []string
+	}
+	group := ColorGroup{
+		ID:     1,
+		Name:   "Reds",
+		Colors: []string{"Crimson", "Red", "Ruby", "Maroon"},
+	}
+	b, err := json.Marshal(group)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	os.Stdout.Write(b)
+  // {"ID":1,"Name":"Reds","Colors":["Crimson","Red","Ruby","Maroon"]}
 }
 ```
 
