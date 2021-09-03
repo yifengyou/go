@@ -1,6 +1,7 @@
 # Summary
 
 * [读我](README.md)
+* [go设计模式](src/go设计模式.md)
 * [常用内置函数](docs/常用内置函数.md)
 * [基本数据类型](docs/基本数据类型.md)
     * [string](docs/基本数据类型/string.md)
@@ -36,4 +37,6 @@
 * [sort](docs/sort.md)
 * [flag](docs/flag.md)
 * [context](docs/context.md)
+* [math](docs/math.md)
+    * [random](docs/math/random.md)
 
