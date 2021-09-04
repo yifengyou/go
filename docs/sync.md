@@ -38,7 +38,55 @@ sync包提供了基本的同步基元，如互斥锁。
 ## type Locker
 
 ## type Once
+
+```
+// Once is an object that will perform exactly one action.
+type Once struct {
+	m    Mutex
+	done uint32
+}
+```
+
+Once是只执行一次动作的对象。
+
+```
+var once sync.Once
+onceBody := func() {
+    fmt.Println("Only once")
+}
+done := make(chan bool)
+for i := 0; i < 10; i++ {
+    go func() {
+        once.Do(onceBody)
+        done <- true
+    }()
+}
+for i := 0; i < 10; i++ {
+    <-done
+}
+```
+
 ### func (o *Once) Do(f func())
+
+* Do方法当且仅当第一次被调用时才执行函数f。换句话说，给定变量：
+
+```
+var once Once
+```
+
+* 如果once.Do(f)被多次调用，只有第一次调用会执行f，即使f每次调用Do 提供的f值不同。
+* 需要给每个要执行仅一次的函数都建立一个Once类型的实例。
+
+Do用于必须刚好运行一次的初始化。因为f是没有参数的，因此可能需要使用闭包来提供给Do方法调用：
+
+```
+config.once.Do(func() { config.init(filename) })
+```
+
+因为只有f返回后Do方法才会返回，f若引起了Do的调用，会导致死锁。
+
+
+
 
 ## type Mutex
 

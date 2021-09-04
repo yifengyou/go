@@ -181,5 +181,10 @@ D. 并发型模式：
    -  一个对象应对其他对象有尽可能少的了解
 
 
+## 参考
+
+* <https://github.com/PacktPublishing/Go-Design-Patterns>
+* <https://github.com/tmrts/go-patterns>
+* <https://golangbyexample.com/all-design-patterns-golang/>
 
 ---
