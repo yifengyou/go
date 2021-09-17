@@ -6,6 +6,13 @@
    - [type Writer](#type-writer)   
       - [func NewWriter(w io.Writer) *Writer](#func-newwriterw-iowriter-writer)   
       - [func (b *Writer) Flush() error](#func-b-writer-flush-error)   
+   - [type Scanner](#type-scanner)   
+      - [func NewScanner(r io.Reader) *Scanner](#func-newscannerr-ioreader-scanner)   
+      - [func (s *Scanner) Scan() bool](#func-s-scanner-scan-bool)   
+      - [func (s *Scanner) Split(split SplitFunc)](#func-s-scanner-splitsplit-splitfunc)   
+      - [func (s *Scanner) Bytes() []byte](#func-s-scanner-bytes-byte)   
+      - [func (s *Scanner) Text() string](#func-s-scanner-text-string)   
+      - [func (s *Scanner) Err() error](#func-s-scanner-err-error)   
 
 <!-- /MDTOC -->
 
@@ -95,5 +102,45 @@ func (b *Writer) WriteByte(c byte) error
 func (b *Writer) WriteRune(r rune) (size int, err error)
 func (b *Writer) ReadFrom(r io.Reader) (n int64, err error)
 ```
+
+
+
+
+
+
+
+
+
+
+## type Scanner
+
+### func NewScanner(r io.Reader) *Scanner
+
+* NewScanner创建并返回一个从r读取数据的Scanner，默认的分割函数是ScanLines。
+
+### func (s *Scanner) Scan() bool
+
+* Scan方法获取当前位置的token（该token可以通过Bytes或Text方法获得），
+* 并让Scanner的扫描位置移动到下一个token。
+* 当扫描因为抵达输入流结尾或者遇到错误而停止时，本方法会返回false。
+* 在Scan方法返回false后，Err方法将返回扫描时遇到的任何错误；除非是io.EOF，此时Err会返回nil。
+
+
+### func (s *Scanner) Split(split SplitFunc)
+
+### func (s *Scanner) Bytes() []byte
+### func (s *Scanner) Text() string
+### func (s *Scanner) Err() error
+
+
+
+
+
+
+
+
+
+
+
 
 ---

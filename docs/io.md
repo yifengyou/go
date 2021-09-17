@@ -1,3 +1,12 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [io](#io)   
+   - [func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)](#func-readatleastr-reader-buf-byte-min-int-n-int-err-error)   
+   - [func ReadFull(r Reader, buf []byte) (n int, err error)](#func-readfullr-reader-buf-byte-n-int-err-error)   
+   - [func WriteString(w Writer, s string) (n int, err error)](#func-writestringw-writer-s-string-n-int-err-error)   
+   - [参考](#参考)   
+
+<!-- /MDTOC -->
 # io
 
 
