@@ -1,3 +1,16 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [ioutil](#ioutil)   
+   - [var Discard io.Writer = devNull(0)](#var-discard-iowriter-devnull0)   
+   - [func ReadFile(filename string) ([]byte, error)](#func-readfilefilename-string-byte-error)   
+   - [func WriteFile(filename string, data []byte, perm os.FileMode) error](#func-writefilefilename-string-data-byte-perm-osfilemode-error)   
+   - [func NopCloser(r io.Reader) io.ReadCloser](#func-nopcloserr-ioreader-ioreadcloser)   
+   - [func ReadAll(r io.Reader) ([]byte, error)](#func-readallr-ioreader-byte-error)   
+   - [func ReadDir(dirname string) ([]os.FileInfo, error)](#func-readdirdirname-string-osfileinfo-error)   
+   - [func TempDir(dir, prefix string) (name string, err error)](#func-tempdirdir-prefix-string-name-string-err-error)   
+   - [func TempFile(dir, prefix string) (f *os.File, err error)](#func-tempfiledir-prefix-string-f-osfile-err-error)   
+
+<!-- /MDTOC -->
 # ioutil
 
 ```
@@ -5,6 +18,9 @@ import "io/ioutil"
 ```
 * 实现一些IO操作的工具函数
 
+## var Discard io.Writer = devNull(0)
+
+* Discard是一个io.Writer接口，对它的所有Write调用都会无实际操作的成功返回
 
 ## func ReadFile(filename string) ([]byte, error)
 ## func WriteFile(filename string, data []byte, perm os.FileMode) error
@@ -26,7 +42,11 @@ import "io/ioutil"
 * 如果文件**存在则在写入数据之前清空文件**。
 
 
-
+## func NopCloser(r io.Reader) io.ReadCloser
+## func ReadAll(r io.Reader) ([]byte, error)
+## func ReadDir(dirname string) ([]os.FileInfo, error)
+## func TempDir(dir, prefix string) (name string, err error)
+## func TempFile(dir, prefix string) (f *os.File, err error)
 
 
 
