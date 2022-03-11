@@ -161,9 +161,10 @@
 ---
 
 
-* [常用框架](src/常用框架.md)
-    * [gorm](src/常用框架/gorm.md)
 
+* [常用框架](docs/常用框架.md)
+    * [gorm](docs/常用框架/gorm.md)
+    * [gin](docs/常用框架/gin.md)
 
 ---
 
