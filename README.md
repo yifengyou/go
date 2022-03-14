@@ -6,6 +6,7 @@
 
 ## 目录
 
+* [go命令](docs/go命令.md)
 * [常用内置函数](docs/常用内置函数.md)
 * [基本数据类型](docs/基本数据类型.md)
     * [string](docs/基本数据类型/string.md)
